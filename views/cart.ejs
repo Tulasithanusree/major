@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %> - Cart</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Your Cart</h1>
+    <% if (cart.length === 0) { %>
+      <p>Your cart is empty.</p>
+    <% } else { %>
+      <ul>
+        <% cart.forEach(item => { %>
+          <li>
+            <%= item.name %> - $<%= item.price %>
+            <form action="/remove-from-cart" method="POST" style="display:inline;">
+              <input type="hidden" name="productId" value="<%= item.id %>">
+              <button type="submit" class="remove-btn">Remove from Cart</button>
+            </form>
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
+    <a href="/">Continue Shopping</a>
+  </div>
+</body>
+</html>

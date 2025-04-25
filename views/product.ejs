@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %> - <%= product.name %></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="product-detail-card">
+      <h1><%= product.name %></h1>
+      <p><%= product.description %></p>
+      <p class="price">Price: $<%= product.price %></p>
+
+      <form action="/add-to-cart" method="POST">
+        <input type="hidden" name="productId" value="<%= product.id %>">
+        <button type="submit">Add to Cart</button>
+      </form>
+
+      <a href="/" class="back-link">← Back to Products</a>
+    </div>
+  </div>
+</body>
+</html>
